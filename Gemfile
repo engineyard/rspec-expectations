@@ -21,6 +21,7 @@ group :documentation do
 end
 
 gem 'simplecov'
+gem 'pry-nav'
 
 platforms :jruby do
   gem "jruby-openssl"

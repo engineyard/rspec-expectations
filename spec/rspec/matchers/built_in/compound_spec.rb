@@ -526,6 +526,15 @@ module RSpec::Matchers::BuiltIn
       end
     end
 
+    describe "expect(...).to matcher.and.not_to(other_matcher)" do
+      it "is supported" do
+        # expect(3).to # PositiveExpectationHandler
+        expect(3).to eq(3).and.not_to(eq(4))
+
+        expect(3).not_to eq(4).and.to(eq(3))
+      end
+    end
+
     describe "expect(...).not_to matcher.or(other_matcher)" do
       it "is not supported" do
         expect {

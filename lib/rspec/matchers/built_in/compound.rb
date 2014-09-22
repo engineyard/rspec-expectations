@@ -36,6 +36,26 @@ module RSpec
           NestedEvaluator.matcher_expects_call_stack_jump?(matcher_2)
         end
 
+        class MichelleNegativeMatcher < BaseMatcher
+          def initialize(matcher)
+            @matcher = matcher
+          end
+
+          def matches?(actual)
+            !@matcher.matches?(actual)
+          end
+        end
+
+        def not_to(matcher)
+          @matcher_2 = MichelleNegativeMatcher.new(matcher)
+          self
+        end
+
+        def to(matcher)
+          @matcher_2 = matcher
+          self
+        end
+
       private
 
         def initialize_copy(other)

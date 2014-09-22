@@ -19,7 +19,7 @@ module RSpec
       #
       # @note The negative form (`expect(...).not_to matcher.and other`)
       #   is not supported at this time.
-      def and(matcher)
+      def and(matcher=nil)
         BuiltIn::Compound::And.new self, matcher
       end
       alias & and

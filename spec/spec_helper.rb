@@ -1,5 +1,7 @@
 require 'rspec/support/spec'
 
+require 'pry-nav'
+
 RSpec::Support::Spec.setup_simplecov do
   minimum_coverage 97
 end
